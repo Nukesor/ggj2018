@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="2.1" version_name="Godot Engine v2.1.4.stable.custom_build">
-	<ext_resource path="res://assets/logoicon.png" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://assets/bg_posterized.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://assets/whale.png" type="Texture" index="1"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 10 </real>
@@ -87,7 +87,11 @@
 				<string> "z/z" </string>
 				<string> "texture" </string>
 				<string> "Sprite" </string>
+<<<<<<< HEAD
 				<string> "logoicon" </string>
+=======
+				<string> "whale" </string>
+>>>>>>> 43d324ba0ae3181bbe15be99c0b6ea994bc97837
 			</string_array>
 			<string> "node_count" </string>
 			<int> 7 </int>
