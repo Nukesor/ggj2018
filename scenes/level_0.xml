@@ -87,11 +87,7 @@
 				<string> "z/z" </string>
 				<string> "texture" </string>
 				<string> "Sprite" </string>
-<<<<<<< HEAD
-				<string> "logoicon" </string>
-=======
 				<string> "whale" </string>
->>>>>>> 43d324ba0ae3181bbe15be99c0b6ea994bc97837
 			</string_array>
 			<string> "node_count" </string>
 			<int> 7 </int>
@@ -133,7 +129,7 @@
 				<vector2> 128, 72 </vector2>
 				<int> -1 </int>
 				<resource  external="0">  </resource>
-				<vector2> 30, 30 </vector2>
+				<vector2> 91.0695, 56.8022 </vector2>
 				<resource  external="1">  </resource>
 			</array>
 			<string> "version" </string>
