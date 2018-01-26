@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="2.1" version_name="Godot Engine v2.1.4.stable.custom_build">
-	<ext_resource path="res://assets/bg.png" type="Texture" index="0"></ext_resource>
 	<ext_resource path="res://assets/logoicon.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://assets/bg_posterized.png" type="Texture" index="0"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 10 </real>
@@ -114,7 +114,7 @@
 				<vector2> 49, -54 </vector2>
 				<vector2> 0.65625, 0.5 </vector2>
 				<resource  resource_type="Shape2D" path="local://2">  </resource>
-				<matrix32> 1.79274, -0, 0, 1.6809, 108.638, -44.3291 </matrix32>
+				<matrix32> 0.242371, -0, 0, 0.221158, -49.2779, 93.9949 </matrix32>
 				<resource  resource_type="Shape2D" path="local://3">  </resource>
 				<resource  resource_type="Shape2D" path="local://4">  </resource>
 				<resource  resource_type="Shape2D" path="local://5">  </resource>
@@ -122,14 +122,14 @@
 				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<real> 1 </real>
-				<vector2> 108.638, -44.3291 </vector2>
-				<vector2> 1.79274, 1.6809 </vector2>
+				<vector2> -49.2779, 93.9949 </vector2>
+				<vector2> 0.242371, 0.221158 </vector2>
 				<vector2_array  len="12"> 					-74.6667, 1268, -74.6667, 108, 1494.86, 108, 1493.33, 1340, -76.1905, 1340, -76.1905, 1380, 1523.81, 1380, 1525.33, 68, -105.143, 68, -105.143, 1348, -106.667, 1400, -76.1905, 1400 </vector2_array>
 				<vector2> 0, 4 </vector2>
-				<vector2> 960, 540 </vector2>
+				<vector2> 128, 72 </vector2>
 				<int> -1 </int>
 				<resource  external="0">  </resource>
-				<vector2> 1845, 40 </vector2>
+				<vector2> 30, 30 </vector2>
 				<resource  external="1">  </resource>
 			</array>
 			<string> "version" </string>
