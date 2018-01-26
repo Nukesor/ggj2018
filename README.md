@@ -1,2 +1,3 @@
-# ggj2018
-Repository for the Global Gamejam 2018
+# GGJ2018
+
+This is going to be the best game!
