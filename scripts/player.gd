@@ -49,4 +49,6 @@ func _process(delta):
 
 func collide(other):
 	get_tree().set_pause(true)
+	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+	go_node.set_pos(Vector2(0, -viewport_y))
 	get_node("/root").add_child(go_node)
