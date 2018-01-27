@@ -6,30 +6,17 @@ extends Node2D
 
 var player
 var circleradius
-var timer
-var finalwavedist
-var finalradius
 var waveangle
-var waveletscene
 
 func _draw():
-	#draw_circle(player.get_pos(), circleradius, Color(255,255,255,1))
-	# final wave
-	draw_circle_arc(player.get_pos()+Vector2(finalwavedist,0), finalradius, waveangle[0], waveangle[1], Color(255,255,255,1))
+	draw_circle_arc(player.get_pos(), circleradius, waveangle[0], waveangle[1], Color(255,255,255,circleradius/100))
 	pass
 
 func _process(delta):
 	update()
-	#circleradius += 0.2
-	timer += 0.2
-	if timer > 20:
-		timer = 0
-		#var node = waveletscene.instance(finalradius)
-		var node = waveletscene.instance()
-		node.set_radius(finalradius)
-		node.set_waveangle(waveangle)
-		add_child(node)
-
+	circleradius -= 0.2
+	if circleradius < 0 :
+		self.queue_free()
 	pass
 
 func draw_circle_arc( center, radius, angle_from, angle_to, color ):
@@ -44,16 +31,14 @@ func draw_circle_arc( center, radius, angle_from, angle_to, color ):
     for indexPoint in range(nb_points):
         draw_line(points_arc[indexPoint], points_arc[indexPoint+1], color)
 
+func set_radius(radius):
+	circleradius = radius
+
+func set_waveangle(angletuple):
+	waveangle = angletuple
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	print("init wave")
+	#print("init wavelet")
 	player = get_node("/root/World/Player")
-	waveletscene = preload("res://scenes/Wavelet.tscn")
-	circleradius = 0
-	finalwavedist = 0
-	finalradius = 100
-	timer = 0
-	waveangle = [45,135]
 	set_process(true)
 	pass
