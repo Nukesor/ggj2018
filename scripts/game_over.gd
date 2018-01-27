@@ -9,4 +9,5 @@ func end():
 
 func _ready():
 	get_node("TextureButton").connect("pressed", self, "end")
+	get_node("SamplePlayer").play("dying_whale")
 	get_node("AnimationPlayer").play("game_over_animation")
