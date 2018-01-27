@@ -24,6 +24,10 @@ func _ready():
 		spawn_segment(segment)
 		segment = next_segment(segment)
 
+func reset():
+	for child in get_children():
+		child.reset()
+
 func _process(dt):
 	time += dt
 	# for line in lines:

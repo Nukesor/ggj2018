@@ -1,11 +1,9 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 func end():
+	get_node("/root/World/obstacle_spawner").reset()
 	get_tree().set_pause(false)
+	get_node("/root").remove_child(self)
 
 func _ready():
 	get_node("TextureButton").connect("pressed", self, "end")
