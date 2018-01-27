@@ -7,9 +7,10 @@ extends Node2D
 var circleradius
 var waveangle
 var speed
+var wave_origin
 
 func _draw():
-	draw_circle_arc(Vector2(0, 0), circleradius, waveangle[0], waveangle[1], Color(255,255,255,circleradius/100))
+	draw_circle_arc(wave_origin, circleradius, waveangle[0]-180, waveangle[1]-180, Color(255,255,255,circleradius/100))
 	pass
 
 func _process(delta):
@@ -25,7 +26,7 @@ func draw_circle_arc( center, radius, angle_from, angle_to, color ):
 
     for i in range(nb_points+1):
         var angle_point = angle_from + i*(angle_to-angle_from)/nb_points - 90
-        var point = center + Vector2( cos(deg2rad(angle_point)), sin(deg2rad(angle_point)) ) * radius
+        var point = center + Vector2( sin(deg2rad(angle_point)), cos(deg2rad(angle_point)) ) * radius
         points_arc.push_back( point )
 
     for indexPoint in range(nb_points):
@@ -39,6 +40,9 @@ func set_waveangle(angletuple):
 
 func set_speed(waveletspeed):
 	speed = waveletspeed
+
+func set_origin(origin):
+	wave_origin = origin
 
 func _ready():
 	#print("init wavelet")
