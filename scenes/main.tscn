@@ -65,6 +65,6 @@ transform/pos = Vector2( 21.9717, 76.1038 )
 
 [node name="obstacle_spawner" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 256, 72 )
+transform/pos = Vector2( 171.573, 70.2395 )
 
 

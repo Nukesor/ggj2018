@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var player_angle = 0.0
-var player_speed = 0.08
+var player_speed = 0.02
 var player_radius = 4.0
 
 var wave_radius = 120
@@ -15,7 +15,7 @@ func _ready():
 	wave_origin = get_node('/root/World/whale').get_pos()
 	set_process(true)
 	set_fixed_process(true)
-	
+
 	# Set the position of the Area2D
 	var area2D = get_node("Area2D")
 	area2D.set_pos(Vector2(wave_radius, 0))
