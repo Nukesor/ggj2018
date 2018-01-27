@@ -3,7 +3,7 @@ extends Node2D
 var obstacle_names = ['rock', 'coral']
 var obstacles = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
-var deco_names = ['bubble']
+var deco_names = ['bubble', 'fish']
 var deco = []
 
 func _ready():
