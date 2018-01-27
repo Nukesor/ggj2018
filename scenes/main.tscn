@@ -38,9 +38,9 @@ tracks/1/keys = {
 
 [node name="bg" type="Sprite" parent="."]
 
-visibility/opacity = 0.703704
-transform/pos = Vector2( -45.3353, -32.1551 )
-transform/rot = 14.595
+visibility/opacity = 0.896296
+transform/pos = Vector2( -35.3353, -21.1552 )
+transform/rot = 20.5976
 z/z = -1
 texture = ExtResource( 1 )
 offset = Vector2( 170, 100 )

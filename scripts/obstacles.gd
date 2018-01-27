@@ -26,15 +26,16 @@ func _ready():
 
 func _process(dt):
 	time += dt
-	for line in lines:
-		var angle = get_node('/root/World/player').player_angle
-		line[0] += Vector2(- 50 * dt, 0).rotated(angle)
-		line[1] += Vector2(- 50 * dt, 0).rotated(angle)
-	update()
+	# for line in lines:
+	# 	var angle = get_node('/root/World/player').player_angle
+	# 	line[0] += Vector2(- 50 * dt, 0).rotated(angle)
+	# 	line[1] += Vector2(- 50 * dt, 0).rotated(angle)
+	# update()
 
 func _draw():
-	for line in lines:
-		draw_line(line[0], line[1], Color(255, 255, 255))
+	pass
+	# for line in lines:
+	# 	draw_line(line[0], line[1], Color(255, 255, 255))
 
 func load_scenes(prefix, names):
 	var scenes = []
