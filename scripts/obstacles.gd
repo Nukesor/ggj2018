@@ -13,7 +13,6 @@ func _ready():
 		obstacles.append(scene)
 
 func _process(dt):
-	# scale(Vector2(1 + dt, 1 + dt))
 	pass
 
 func timeout():
