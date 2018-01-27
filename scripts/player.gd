@@ -7,6 +7,11 @@ var player_radius = 4.0
 var wave_radius = 120
 var wave_origin
 
+var collision = false
+var go_scene = load("res://scenes/game_over.tscn")
+var go_node = go_scene.instance()
+
+
 func _ready():
 	wave_origin = get_node('/root/World/whale').get_pos()
 	set_process(true)
@@ -33,3 +38,7 @@ func _process(delta):
 
 		#set_pos(wave_origin + Vector2(cos(player_angle), sin(player_angle)) * wave_radius)
 		set_rot(player_angle)
+	
+	if collision:
+		get_node("/root").add_child(go_node)
+		collision = false
