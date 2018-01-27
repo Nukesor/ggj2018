@@ -5,7 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 func end():
-	print("STOP")
+	get_tree().set_pause(false)
 
 func _ready():
 	get_node("TextureButton").connect("pressed", self, "end")
