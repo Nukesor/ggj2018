@@ -61,7 +61,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	print("init wave")
-	player = get_node("/root/World/Player")
+	player = get_node("/root/World/whale")
 	waveletscene = preload("res://scenes/Wavelet.tscn")
 	set_process(true)
 	pass

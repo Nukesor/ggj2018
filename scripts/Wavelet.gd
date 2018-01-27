@@ -43,6 +43,6 @@ func set_speed(waveletspeed):
 
 func _ready():
 	#print("init wavelet")
-	player = get_node("/root/World/Player")
+	player = get_node("/root/World/whale")
 	set_process(true)
 	pass
