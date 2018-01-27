@@ -13,11 +13,11 @@ var	circleradius = 0
 var	finalwavedist = 0
 var	finalradius
 var	wobble = 0
-var wobblespeed = 10
+var wobblespeed = 15
 var	waveangle = [60,120]
 
-var	waveletspeed = 10
-var waveletspawnrate = 0.5
+var	waveletspeed = 60
+var waveletspawnrate = 2.0
 
 func _draw():
 	# final wave
@@ -38,7 +38,9 @@ func _process(delta):
 		node.set_radius(finalradius)
 		node.set_waveangle(waveangle)
 		node.set_speed(waveletspeed)
-		add_child(node)
+		node.set_pos(get_global_pos())
+		node.set_rot(get_global_rot())
+		get_node('/root/World').add_child(node)
 	update()
 
 func draw_circle_arc( center, radius, angle_from, angle_to, color ):
