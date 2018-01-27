@@ -4,7 +4,6 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-var player
 var waveletscene
 
 var	timer = 0
@@ -12,20 +11,19 @@ var	globaltimer = 0
 
 var	circleradius = 0
 var	finalwavedist = 0
-var	finalradius = 100
+var	finalradius
 var	wobble = 0
 var wobblespeed = 10
-var	waveangle = [45,135]
+var	waveangle = [60,120]
 
 var	waveletspeed = 10
 var waveletspawnrate = 0.5
 
 func _draw():
-	#draw_circle(player.get_pos(), circleradius, Color(255,255,255,1))
 	# final wave
-	draw_circle_arc(player.get_pos()+Vector2(finalwavedist,0), finalradius+wobble, waveangle[0], waveangle[1], Color(255,255,255,1))
-	draw_circle_arc(player.get_pos()+Vector2(finalwavedist,0), finalradius+wobble-0.3, waveangle[0], waveangle[1], Color(255,255,255,0.5))
-	draw_circle_arc(player.get_pos()+Vector2(finalwavedist,0), finalradius+wobble-0.5, waveangle[0], waveangle[1], Color(255,255,255,0.3))
+	draw_circle_arc(Vector2(finalwavedist,0), finalradius+wobble, waveangle[0], waveangle[1], Color(255,255,255,1))
+	draw_circle_arc(Vector2(finalwavedist,0), finalradius+wobble-0.3, waveangle[0], waveangle[1], Color(255,255,255,0.5))
+	draw_circle_arc(Vector2(finalwavedist,0), finalradius+wobble-0.5, waveangle[0], waveangle[1], Color(255,255,255,0.3))
 	pass
 
 func _process(delta):
@@ -42,7 +40,6 @@ func _process(delta):
 		node.set_speed(waveletspeed)
 		add_child(node)
 	update()
-	pass
 
 func draw_circle_arc( center, radius, angle_from, angle_to, color ):
     var nb_points = 32
@@ -60,7 +57,6 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	print("init wave")
-	player = get_node("/root/World/whale")
 	waveletscene = preload("res://scenes/Wavelet.tscn")
+	finalradius = get_parent().wave_radius
 	set_process(true)
-	pass

@@ -4,13 +4,12 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-var player
 var circleradius
 var waveangle
 var speed
 
 func _draw():
-	draw_circle_arc(player.get_pos(), circleradius, waveangle[0], waveangle[1], Color(255,255,255,circleradius/100))
+	draw_circle_arc(Vector2(0, 0), circleradius, waveangle[0], waveangle[1], Color(255,255,255,circleradius/100))
 	pass
 
 func _process(delta):
@@ -43,6 +42,5 @@ func set_speed(waveletspeed):
 
 func _ready():
 	#print("init wavelet")
-	player = get_node("/root/World/whale")
 	set_process(true)
 	pass

@@ -118,9 +118,11 @@ autoplay = "wiggle"
 
 [node name="whale" parent="." instance=ExtResource( 2 )]
 
+transform/pos = Vector2( 21.9717, 76.1038 )
+
 [node name="player" parent="." instance=ExtResource( 3 )]
 
-[node name="Wave" parent="." instance=ExtResource( 4 )]
+[node name="Wave" parent="player" instance=ExtResource( 4 )]
 
 [node name="obstacle_spawner" parent="." instance=ExtResource( 5 )]
 
