@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/bg_posterized.png" type="Texture" id=1]
 [ext_resource path="res://scenes/whale.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/obstacles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/wave.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -119,8 +119,6 @@ autoplay = "wiggle"
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 
-[node name="obstacle_spawner" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 244, 72 )
+[node name="Wave" parent="." instance=ExtResource( 4 )]
 
 

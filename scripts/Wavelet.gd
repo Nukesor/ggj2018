@@ -7,6 +7,7 @@ extends Node2D
 var player
 var circleradius
 var waveangle
+var speed
 
 func _draw():
 	draw_circle_arc(player.get_pos(), circleradius, waveangle[0], waveangle[1], Color(255,255,255,circleradius/100))
@@ -14,7 +15,7 @@ func _draw():
 
 func _process(delta):
 	update()
-	circleradius -= 0.2
+	circleradius -= speed*delta
 	if circleradius < 0 :
 		self.queue_free()
 	pass
@@ -37,8 +38,11 @@ func set_radius(radius):
 func set_waveangle(angletuple):
 	waveangle = angletuple
 
+func set_speed(waveletspeed):
+	speed = waveletspeed
+
 func _ready():
 	#print("init wavelet")
-	player = get_node("/root/World/Player")
+	player = get_node("/root/World/whale")
 	set_process(true)
 	pass
