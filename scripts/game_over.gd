@@ -2,6 +2,8 @@ extends Node2D
 
 func end():
 	get_node("/root/World/obstacle_spawner").reset()
+	get_node("/root/World/whale").reset()
+	get_node("/root/World/player").reset()
 	get_tree().set_pause(false)
 	get_node("/root").remove_child(self)
 
