@@ -16,8 +16,6 @@ func load_scenes(prefix, names):
 	var scenes = []
 	for name in names:
 		var scene = load('res://scenes/' + prefix + '/' + name + '.tscn')
-		print('res://scenes/' + prefix + '/' + name + '.tscn')
-		print(scene)
 		scenes.append(scene)
 	return scenes
 
