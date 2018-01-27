@@ -40,5 +40,6 @@ func _process(delta):
 		set_rot(player_angle)
 	
 	if collision:
+		get_tree().set_pause(true)
 		get_node("/root").add_child(go_node)
 		collision = false
