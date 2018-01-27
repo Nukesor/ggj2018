@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://assets/bg_posterized.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Whale.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Wave.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -114,5 +115,7 @@ blend_times = [  ]
 autoplay = "wiggle"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Wave" parent="." instance=ExtResource( 3 )]
 
 
