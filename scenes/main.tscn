@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://assets/bg_posterized.png" type="Texture" id=1]
 [ext_resource path="res://scenes/whale.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/wave.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/obstacles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/obstacle.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/wave.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/obstacles.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -57,13 +58,17 @@ autoplay = "wiggle"
 
 [node name="whale" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 21.9717, 76.1038 )
+transform/pos = Vector2( 96.7933, 73.0229 )
+script/script = ExtResource( 3 )
+speed = 50
 
-[node name="player" parent="." instance=ExtResource( 3 )]
+[node name="player" parent="." instance=ExtResource( 4 )]
 
-[node name="Wave" parent="player" instance=ExtResource( 4 )]
+transform/pos = Vector2( -29.9287, 72 )
 
-[node name="obstacle_spawner" parent="." instance=ExtResource( 5 )]
+[node name="Wave" parent="player" instance=ExtResource( 5 )]
+
+[node name="obstacle_spawner" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 171.573, 70.2395 )
 

@@ -5,14 +5,12 @@ var player_speed = 0.02
 var player_radius = 4.0
 
 var wave_radius = 120
-var wave_origin
 
 var go_scene = load("res://scenes/game_over.tscn")
 var go_node = go_scene.instance()
 
 
 func _ready():
-	wave_origin = get_node('/root/World/whale').get_pos()
 	set_process(true)
 	set_fixed_process(true)
 
@@ -24,7 +22,6 @@ func _ready():
 func _draw():
 	# Draw the player
 	draw_circle(Vector2(wave_radius, 0), player_radius, Color(1.0, 1.0, 1.0))
-	set_pos(wave_origin)
 
 func _process(delta):
 	update()
