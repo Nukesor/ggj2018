@@ -18,6 +18,9 @@ func _ready():
 	var area2D = get_node("Area2D")
 	area2D.set_pos(Vector2(wave_radius, 0))
 	area2D.connect('area_enter', self, 'collide')
+	
+	get_node("SamplePlayer").play("start_sound")
+	get_node("SamplePlayer 2").play("water_background")
 
 func _draw():
 	# Draw the player
