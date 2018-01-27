@@ -3,20 +3,38 @@ extends Node2D
 var obstacle_names = ['rock', 'coral']
 var obstacles = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
+var deco_names = ['bubble']
+var deco = []
 
 func _ready():
 	var timer = get_node('timer')
 	timer.connect('timeout', self, 'timeout')
-	set_process(true)
-	for name in obstacle_names:
-		var scene = load('res://scenes/obstacles/' + name + '.tscn')
-		obstacles.append(scene)
+	obstacles = load_scenes('obstacles', obstacle_names)
+	deco = load_scenes('deco', deco_names)
 
-func _process(dt):
-	pass
+func load_scenes(prefix, names):
+	var scenes = []
+	for name in names:
+		var scene = load('res://scenes/' + prefix + '/' + name + '.tscn')
+		print('res://scenes/' + prefix + '/' + name + '.tscn')
+		print(scene)
+		scenes.append(scene)
+	return scenes
+
+func rand_element(arr):
+	return arr[rand_range(0, arr.size())]
+
+func prepare_node(scene):
+	var node = Node2D.new()
+	node.set_script(obstacle_script)
+	node.add_child(scene.instance())
+	return node
 
 func timeout():
-	var scene = obstacles[rand_range(0, obstacles.size())]
-	var node = scene.instance()
-	node.set_script(obstacle_script)
-	add_child(node)
+	var scene = rand_element(obstacles)
+	add_child(prepare_node(scene))
+
+	if randf() > 0.8:
+		var node = prepare_node(rand_element(deco))
+		node.set_pos(Vector2(rand_range(-50, 50), rand_range(-50, 70)))
+		add_child(node)
