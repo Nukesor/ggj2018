@@ -35,6 +35,11 @@ func _process(delta):
 
 		set_rot(player_angle)
 
+	var target_y = clamp(-Vector2(wave_radius, 0).rotated(player_angle).y, -40, 40)
+	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+	var new_y = lerp(viewport_y, target_y, 0.1)
+	get_viewport().set_canvas_transform(Matrix32(0, Vector2(0, new_y)))
+
 func collide(other):
 	get_tree().set_pause(true)
 	get_node("/root").add_child(go_node)
