@@ -36,5 +36,5 @@ func timeout():
 
 	if randf() > 0.8:
 		var node = prepare_node(rand_element(deco))
-		node.set_pos(Vector2(rand_range(-50, 50), rand_range(-50, 70)))
+		node.set_pos(Vector2(rand_range(-50, 50), rand_range(-50, 100)))
 		add_child(node)
