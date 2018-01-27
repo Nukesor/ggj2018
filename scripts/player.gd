@@ -39,4 +39,5 @@ func _process(delta):
 		set_rot(player_angle)
 
 func collide(other):
+	get_tree().set_pause(true)
 	get_node("/root").add_child(go_node)
