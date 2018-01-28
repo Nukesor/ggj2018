@@ -56,7 +56,11 @@ func _process(delta):
 	get_viewport().set_canvas_transform(Matrix32(0, Vector2(0, new_y)))
 
 func collide(other):
-	get_tree().set_pause(true)
-	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
-	go_node.set_pos(Vector2(0, -viewport_y))
-	get_node("/root").add_child(go_node)
+#	if other.get_name() == "femwhale":
+#		#needs to be changed to reverse function
+#		get_node("/root").add_child(go_node)
+#	else:
+		get_tree().set_pause(true)
+		var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+		go_node.set_pos(Vector2(0, -viewport_y))
+		get_node("/root").add_child(go_node)

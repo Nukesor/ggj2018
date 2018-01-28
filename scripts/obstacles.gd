@@ -36,9 +36,7 @@ func _ready():
 	femwhale_node.start_position = femwhale_node.get_pos()
 	
 func reset():
-	print(get_children())
 	for child in get_children():
-		print(child.get_path())
 		child.reset()
 
 func _process(dt):

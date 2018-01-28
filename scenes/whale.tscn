@@ -5,10 +5,10 @@
 [ext_resource path="res://assets/whale3.png" type="Texture" id=3]
 [ext_resource path="res://assets/whale4.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+extents = Vector2( 10, 51.4946 )
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -38,16 +38,13 @@ transform/scale = Vector2( 2.58654, 2.57547 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 transform/scale = Vector2( 3.2, 3.18561 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 
 
