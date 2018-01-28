@@ -8,6 +8,9 @@ var obstacle_script = preload('res://scripts/obstacle.gd')
 var segment_count = 20
 var lines = []
 var time = 0
+# TODO with smaller obstacles
+var floating_obstacles_freq = rand_range(0.05, 0.1)
+var floating_obstacles_counter = 0
 
 func _ready():
 	obstacles = load_scenes('obstacles', obstacle_names)
@@ -52,8 +55,8 @@ func _process(dt):
 
 func _draw():
 	pass
-	# for line in lines:
-	# 	draw_line(line[0], line[1], Color(255, 255, 255))
+#	for line in lines:
+#		draw_line(line[0], line[1], Color(255, 255, 255))
 
 func load_scenes(prefix, names):
 	var scenes = []
@@ -89,3 +92,15 @@ func spawn_wall_obstacle(segment, offset):
 func spawn_segment(segment, divisor):
 	spawn_wall_obstacle(segment, -segment["height"] / divisor)
 	spawn_wall_obstacle(segment, segment["height"] / divisor)
+#	lines.append([
+#		segment["position"] + (-segment["height"] / 2).rotated(segment["angle"]),
+#		segment["position"] + (segment["height"] / 2).rotated(segment["angle"])
+#	])
+	
+	if floating_obstacles_counter > 1 / floating_obstacles_freq:
+		var segment_height = float(segment["height"].y) / divisor
+		var random_height = rand_range(-segment_height, segment_height)
+		spawn_wall_obstacle(segment, Vector2(0, random_height))
+		floating_obstacles_counter = 0
+	else:
+		floating_obstacles_counter += 1
