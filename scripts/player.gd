@@ -20,7 +20,7 @@ func _ready():
 	# Set the position of the Area2D
 	var area2D = get_node("Area2D")
 	area2D.set_pos(Vector2(wave_radius, 0))
-#	area2D.connect('area_enter', self, 'collide')
+	area2D.connect('area_enter', self, 'collide')
 	area2D.get_shape(0).set_radius(player_radius * 0.8)
 
 	start_pos = get_pos()
