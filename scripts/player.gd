@@ -67,6 +67,7 @@ func _process(delta):
 
 func collide(other):
 	if other.get_name() == "femwhale":
+		get_node("SamplePlayer 3").play("beam_cannon")
 		mirror()
 	else:
 		get_tree().set_pause(true)
