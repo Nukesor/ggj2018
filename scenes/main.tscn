@@ -26,7 +26,7 @@ speed = 50
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -29.9287, 72 )
+transform/pos = Vector2( 4.10816, 74.7599 )
 
 [node name="obstacle_spawner" parent="." instance=ExtResource( 6 )]
 

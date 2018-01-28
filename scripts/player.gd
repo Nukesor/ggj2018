@@ -10,6 +10,8 @@ var go_scene = load("res://scenes/game_over.tscn")
 var go_node = go_scene.instance()
 
 var next_ping = rand_range(5,10)
+var start_pos
+var start_angle = 0.0
 
 func _ready():
 	set_process(true)
@@ -21,11 +23,19 @@ func _ready():
 #	area2D.connect('area_enter', self, 'collide')
 	area2D.get_shape(0).set_radius(player_radius * 0.8)
 
+	start_pos = get_pos()
+
 	get_node("SamplePlayer").play("start_sound")
 	get_node("SamplePlayer 2").play("water_background")
 
 func reset():
 	player_angle = 0.0
+	set_rot(player_angle)
+	set_pos(start_pos)
+
+func mirror():
+	set_pos(Vector2(256 - get_pos().x, get_pos().y))
+	player_angle = PI
 	set_rot(player_angle)
 
 func _draw():
@@ -34,7 +44,7 @@ func _draw():
 
 func _process(delta):
 	update()
-	
+
 	if next_ping < 0:
 		get_node("SamplePlayer").play("noisy_ping")
 		next_ping = rand_range(5,10)
@@ -56,7 +66,11 @@ func _process(delta):
 	get_viewport().set_canvas_transform(Matrix32(0, Vector2(0, new_y)))
 
 func collide(other):
-	get_tree().set_pause(true)
-	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
-	go_node.set_pos(Vector2(0, -viewport_y))
-	get_node("/root").add_child(go_node)
+	if other.get_name() == "femwhale":
+		get_node("SamplePlayer 3").play("beam_cannon")
+		mirror()
+	else:
+		get_tree().set_pause(true)
+		var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+		go_node.set_pos(Vector2(0, -viewport_y))
+		get_node("/root").add_child(go_node)
