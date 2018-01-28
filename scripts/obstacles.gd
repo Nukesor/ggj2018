@@ -5,7 +5,7 @@ var obstacles = []
 var deco_names = ['bubble', 'fish']
 var deco = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
-var segment_count = 50
+var segment_count = 20
 var lines = []
 var time = 0
 
@@ -32,12 +32,13 @@ func _ready():
 		
 	#femwhale does not reset right
 	var femwhale_node = get_node("/root/World/femwhale")
-	femwhale_node.set_script(obstacle_script)
 	femwhale_node.set_pos(segment["position"] + get_pos())
-	add_child(femwhale_node)
-
+	femwhale_node.start_position = femwhale_node.get_pos()
+	
 func reset():
+	print(get_children())
 	for child in get_children():
+		print(child.get_path())
 		child.reset()
 
 func _process(dt):
