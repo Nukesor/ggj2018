@@ -8,6 +8,10 @@ func end():
 	get_node("/root").remove_child(self)
 
 func _ready():
-	get_node("TextureButton").connect("pressed", self, "end")
 	get_node("SamplePlayer").play("dying_whale")
 	get_node("AnimationPlayer").play("game_over_animation")
+	set_process_unhandled_input(true)
+
+func _unhandled_input(event):
+	if event.is_action_pressed('click') || event.is_action_pressed('ui_accept'):
+		end()
