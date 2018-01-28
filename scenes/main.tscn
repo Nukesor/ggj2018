@@ -20,7 +20,7 @@ speed = 50
 
 [node name="femwhale" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 5.86418, 3.28394 )
+transform/pos = Vector2( 199.718, 72.5174 )
 script/script = ExtResource( 3 )
 speed = 50
 

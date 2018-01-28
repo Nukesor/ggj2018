@@ -1,12 +1,15 @@
 extends KinematicBody2D
 
+var game_speed = 1
+
 var player_angle = 0.0
 var player_speed = 0.02
 var player_radius = 4.0
 
 var wave_radius = 120
 
-var go_scene = load("res://scenes/game_over.tscn")
+var go_scene = preload("res://scenes/game_over.tscn")
+var win_scene = preload('res://scenes/win.tscn')
 var go_node = go_scene.instance()
 
 var next_ping = rand_range(5,10)
@@ -69,6 +72,12 @@ func collide(other):
 	if other.get_name() == "femwhale":
 		get_node("SamplePlayer 3").play("beam_cannon")
 		mirror()
+	elif other.get_name() == "whale":
+		get_tree().set_pause(true)
+		var node = win_scene.instance()
+		get_node('/root').add_child(node)
+		game_speed *= 1.1
+		OS.set_time_scale(game_speed)
 	else:
 		get_tree().set_pause(true)
 		var viewport_y = get_viewport().get_canvas_transform().get_origin().y

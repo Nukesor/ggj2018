@@ -27,29 +27,27 @@ func _ready():
 		spawn_segment(segment,divisor)
 		segment = next_segment(segment)
 		divisor -= 0.25
-		
+
 	for i in range(segment_count):
 		spawn_segment(segment, divisor)
 		segment = next_segment(segment)
-	
+
 	for i in range(5):
 		spawn_segment(segment,divisor)
 		segment = next_segment(segment)
 		divisor += 0.25
-	
-	print("DIVISOR: ",divisor)
-	#femwhale does not reset right
+		
 	var femwhale_node = get_node("/root/World/femwhale")
-	femwhale_node.set_pos(segment["position"] + get_pos())
+	# femwhale_node.set_pos(segment["position"] + get_pos())
 	femwhale_node.start_position = femwhale_node.get_pos()
-	
+
 func reset():
 	for child in get_children():
 		child.reset()
 
 func _process(dt):
 	time += dt
-		
+
 	# for line in lines:
 	# 	var angle = get_node('/root/World/player').player_angle
 	# 	line[0] += Vector2(- 50 * dt, 0).rotated(angle)
@@ -105,7 +103,7 @@ func spawn_segment(segment, divisor):
 #		segment["position"] + (-segment["height"] / 2).rotated(segment["angle"]),
 #		segment["position"] + (segment["height"] / 2).rotated(segment["angle"])
 #	])
-	
+
 	if floating_obstacles_counter > 1 / floating_obstacles_freq:
 		var segment_height = float(segment["height"].y)
 		print(segment_height)
