@@ -16,13 +16,13 @@
 
 transform/pos = Vector2( 96.7933, 73.0229 )
 script/script = ExtResource( 3 )
-speed = 50
+speed = 100
 
 [node name="femwhale" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 199.718, 72.5174 )
 script/script = ExtResource( 3 )
-speed = 50
+speed = 100
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 

@@ -44,7 +44,7 @@ _update_shape_index = 0
 
 frames = SubResource( 2 )
 animation = "default"
-frame = 4
+frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 

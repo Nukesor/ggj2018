@@ -14,7 +14,7 @@ func _enter_tree():
 	if get_node("AnimationPlayer"):
 		get_node("AnimationPlayer").play("game_over_animation")
 	if find_node("Label"):
-		var normal_speed = 100
+		var normal_speed = 200
 		var max_speed = 1484
 		var current_speed = OS.get_time_scale() * normal_speed
 		var percentage = str(floor(100 * current_speed/max_speed))
