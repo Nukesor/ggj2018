@@ -9,6 +9,8 @@ var wave_radius = 120
 var go_scene = load("res://scenes/game_over.tscn")
 var go_node = go_scene.instance()
 
+var next_ping = rand_range(5,10)
+
 func _ready():
 	set_process(true)
 	set_fixed_process(true)
@@ -32,6 +34,12 @@ func _draw():
 
 func _process(delta):
 	update()
+	
+	if next_ping < 0:
+		get_node("SamplePlayer").play("noisy_ping")
+		next_ping = rand_range(5,10)
+	else:
+		next_ping -= delta
 
 	if Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right"):
 		if Input.is_action_pressed("player_left"):

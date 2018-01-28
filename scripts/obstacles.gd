@@ -5,7 +5,7 @@ var obstacles = []
 var deco_names = ['bubble', 'fish']
 var deco = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
-var segment_count = 150
+var segment_count = 50
 var lines = []
 var time = 0
 
@@ -29,6 +29,12 @@ func _ready():
 		spawn_segment(segment,divisor)
 		segment = next_segment(segment)
 		divisor += 0.25
+		
+	#femwhale does not reset right
+	var femwhale_node = get_node("/root/World/femwhale")
+	femwhale_node.set_script(obstacle_script)
+	femwhale_node.set_pos(segment["position"] + get_pos())
+	add_child(femwhale_node)
 
 func reset():
 	for child in get_children():
@@ -36,6 +42,7 @@ func reset():
 
 func _process(dt):
 	time += dt
+		
 	# for line in lines:
 	# 	var angle = get_node('/root/World/player').player_angle
 	# 	line[0] += Vector2(- 50 * dt, 0).rotated(angle)
