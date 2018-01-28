@@ -14,7 +14,7 @@
 
 [node name="whale" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 96.7933, 73.0229 )
+transform/pos = Vector2( 74.3467, 73.463 )
 script/script = ExtResource( 3 )
 speed = 50
 
