@@ -10,6 +10,8 @@ var go_scene = load("res://scenes/game_over.tscn")
 var go_node = go_scene.instance()
 
 var next_ping = rand_range(5,10)
+var start_pos
+var start_angle = 0.0
 
 func _ready():
 	set_process(true)
@@ -21,16 +23,18 @@ func _ready():
 	area2D.connect('area_enter', self, 'collide')
 	area2D.get_shape(0).set_radius(player_radius * 0.8)
 
+	start_pos = get_pos()
+
 	get_node("SamplePlayer").play("start_sound")
 	get_node("SamplePlayer 2").play("water_background")
 
 func reset():
 	player_angle = 0.0
 	set_rot(player_angle)
+	set_pos(start_pos)
 
 func mirror():
-	set_pos(get_pos() + Vector2(144-get_pos().x, 0))
-	print(get_pos())
+	set_pos(Vector2(256 - get_pos().x, get_pos().y))
 	player_angle = PI
 	set_rot(player_angle)
 
