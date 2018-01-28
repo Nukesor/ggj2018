@@ -1,6 +1,6 @@
 extends Node2D
 
-var obstacle_names = ['rock', 'coral']
+var obstacle_names = ['rock', 'rock_b']
 var obstacles = []
 var deco_names = ['bubble', 'fish']
 var deco = []
@@ -19,7 +19,7 @@ func _ready():
 		"angle": 0,
 		"position": Vector2(0, 0)
 	}
-	
+
 	var divisor = 2
 	for i in range(segment_count):
 		spawn_segment(segment, divisor)
@@ -80,7 +80,7 @@ func spawn_wall_obstacle(segment, offset):
 func spawn_segment(segment, divisor):
 	spawn_wall_obstacle(segment, -segment["height"] / divisor)
 	spawn_wall_obstacle(segment, segment["height"] / divisor)
-	
+
 
 	# if randf() > 0.8:
 	# 	var node = prepare_node(rand_element(deco))
