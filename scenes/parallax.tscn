@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/parallaxScrolling.gd" type="Script" id=1]
-[ext_resource path="res://assets/bg_posterized.png" type="Texture" id=2]
+[ext_resource path="res://assets/bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/coral_a.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 5 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
-"values": [ -18.8937, 20.5976 ]
+"values": [ 0.0, 27.3259 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visibility/opacity")
@@ -53,12 +53,10 @@ motion/mirroring = Vector2( 0, 0 )
 
 [node name="bg" type="Sprite" parent="ParallaxLayer00"]
 
-visibility/opacity = 0.896296
-transform/pos = Vector2( -31.3353, -20.1552 )
-transform/rot = 20.5976
+transform/pos = Vector2( -116.067, -17.8831 )
 z/z = -1
 texture = ExtResource( 2 )
-offset = Vector2( 170, 100 )
+offset = Vector2( 960, 540 )
 
 [node name="bg_movement" type="AnimationPlayer" parent="ParallaxLayer00/bg"]
 
