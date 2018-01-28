@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/parallaxScrolling.gd" type="Script" id=1]
+[ext_resource path="res://assets/bg_posterized.png" type="Texture" id=2]
+[ext_resource path="res://assets/coral_a.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "wiggle"
+length = 10.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/rot")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ -18.8937, 20.5976 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visibility/opacity")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 3, 6, 8 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.6, 1.0, 0.6 ]
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = false
+script/script = ExtResource( 1 )
+
+[node name="ParallaxLayer00" type="ParallaxLayer" parent="."]
+
+motion/scale = Vector2( 1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+
+[node name="bg" type="Sprite" parent="ParallaxLayer00"]
+
+visibility/opacity = 0.896296
+transform/pos = Vector2( -31.3353, -20.1552 )
+transform/rot = 20.5976
+z/z = -1
+texture = ExtResource( 2 )
+offset = Vector2( 170, 100 )
+
+[node name="bg_movement" type="AnimationPlayer" parent="ParallaxLayer00/bg"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/wiggle = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "wiggle"
+
+[node name="ParallaxLayer01" type="ParallaxLayer" parent="."]
+
+z/z = 1
+motion/scale = Vector2( 1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+
+[node name="Sprite1" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 95, 31 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 30, 32 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 174, 37 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 60, 101 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 133, 76 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxLayer01"]
+
+transform/pos = Vector2( 196, 115 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer02" type="ParallaxLayer" parent="."]
+
+z/z = 2
+motion/scale = Vector2( 1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 34.1604, 68.7181 )
+texture = ExtResource( 3 )
+
+[node name="Sprite1" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 83.8122, 69.9097 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 112.412, 116.781 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 172.788, 80.2373 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 213.304, 54.0211 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 228.398, 100.098 )
+texture = ExtResource( 3 )
+
+
