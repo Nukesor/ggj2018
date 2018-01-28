@@ -62,7 +62,7 @@ func _process(delta):
 			waveangle[1] = -180
 		# waveangle[0] = fmod(waveangle[0] + 180 + delta*rotatespeed, 360) - 180
 		# waveangle[1] = fmod(waveangle[1] + 180 + delta*rotatespeed, 360) - 180
-		print(waveangle)
+		# print(waveangle)
 		# print("rotation")
 		# print(rad2deg(player_rot))
 		# print("angle")
@@ -99,10 +99,10 @@ func _process(delta):
 		node.set_pos(get_global_pos())
 		node.set_rot(get_global_rot())
 		get_node('/root/World').add_child(node)
-	print("wo")
-	print(wave_origin)
-	print("pp")
-	print(get_node('/root/World/player').get_pos())
+	# print("wo")
+	# print(wave_origin)
+	# print("pp")
+	# print(get_node('/root/World/player').get_pos())
 	update()
 
 func draw_circle_arc( center, radius, angle_from, angle_to, color ):
