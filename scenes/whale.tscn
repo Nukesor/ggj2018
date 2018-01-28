@@ -19,7 +19,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="whale" type="KinematicBody2D"]
+[node name="whale" type="Area2D"]
 
 transform/pos = Vector2( 100, 100 )
 transform/scale = Vector2( 0.3125, 0.313912 )
@@ -27,9 +27,10 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2.58654, 0, 0, 2.57547, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
