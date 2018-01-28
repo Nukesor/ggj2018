@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/parallaxScrolling.gd" type="Script" id=1]
 [ext_resource path="res://assets/bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/coral_a.png" type="Texture" id=3]
+[ext_resource path="res://assets/bgfish.png" type="Texture" id=3]
+[ext_resource path="res://assets/bubble_particles.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -54,6 +55,7 @@ motion/mirroring = Vector2( 0, 0 )
 [node name="bg" type="Sprite" parent="ParallaxLayer00"]
 
 transform/pos = Vector2( -116.067, -17.8831 )
+transform/scale = Vector2( 0.593107, 0.593107 )
 z/z = -1
 texture = ExtResource( 2 )
 offset = Vector2( 960, 540 )
@@ -76,34 +78,26 @@ motion/scale = Vector2( 1, 1 )
 motion/offset = Vector2( 0, 0 )
 motion/mirroring = Vector2( 0, 0 )
 
-[node name="Sprite1" type="Sprite" parent="ParallaxLayer01"]
-
-transform/pos = Vector2( 95, 31 )
-texture = ExtResource( 3 )
-
 [node name="Sprite" type="Sprite" parent="ParallaxLayer01"]
 
-transform/pos = Vector2( 30, 32 )
+transform/pos = Vector2( 389.2, 221.781 )
 texture = ExtResource( 3 )
+modulate = Color( 0.328125, 0.401611, 1, 1 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxLayer01"]
 
-transform/pos = Vector2( 174, 37 )
+transform/pos = Vector2( 342.146, 96.4663 )
 texture = ExtResource( 3 )
+modulate = Color( 0.476562, 1, 0.631958, 1 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxLayer01"]
 
-transform/pos = Vector2( 60, 101 )
-texture = ExtResource( 3 )
-
-[node name="Sprite4" type="Sprite" parent="ParallaxLayer01"]
-
-transform/pos = Vector2( 133, 76 )
+transform/pos = Vector2( 168.68, 265.045 )
 texture = ExtResource( 3 )
 
 [node name="Sprite5" type="Sprite" parent="ParallaxLayer01"]
 
-transform/pos = Vector2( 196, 115 )
+transform/pos = Vector2( 421.562, 359.017 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer02" type="ParallaxLayer" parent="."]
@@ -115,32 +109,38 @@ motion/mirroring = Vector2( 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 34.1604, 68.7181 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 239.418, 119.218 )
+texture = ExtResource( 4 )
 
 [node name="Sprite1" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 83.8122, 69.9097 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 126.981, 93.5306 )
+texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 112.412, 116.781 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 342.919, 63.0232 )
+texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 172.788, 80.2373 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 214.249, 47.9075 )
+texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 213.304, 54.0211 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 520.888, 117.589 )
+texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="ParallaxLayer02"]
 
-transform/pos = Vector2( 228.398, 100.098 )
+transform/pos = Vector2( 364.457, 152.183 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4 2" type="Sprite" parent="ParallaxLayer02"]
+
+transform/pos = Vector2( 560.66, 259.586 )
 texture = ExtResource( 3 )
+modulate = Color( 0.445312, 0.830994, 1, 1 )
 
 
