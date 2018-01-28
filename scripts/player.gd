@@ -81,7 +81,7 @@ func collide(other):
 		mirror()
 	elif other.get_name() == "whale":
 		get_tree().set_pause(true)
-		game_speed *= 1.1
+		game_speed += 0.5
 		OS.set_time_scale(game_speed)
 		var viewport_y = get_viewport().get_canvas_transform().get_origin().y
 		win_node.set_pos(Vector2(0, -viewport_y))

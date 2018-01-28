@@ -20,6 +20,16 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 127.283, -72.1695 ), Vector2( 127.283, 71.914 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("canvas/Label:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 99, -71 ), Vector2( 95, 74 ) ]
+}
 
 [sub_resource type="SampleLibrary" id=2]
 
@@ -51,6 +61,28 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Label" type="Label" parent="canvas"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 95.0
+margin/top = 74.0
+margin/right = 135.0
+margin/bottom = 88.0
+text = "50%"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
