@@ -36,9 +36,9 @@ func _ready():
 		spawn_segment(segment,divisor)
 		segment = next_segment(segment)
 		divisor += 0.25
-		
+
 	var femwhale_node = get_node("/root/World/femwhale")
-	# femwhale_node.set_pos(segment["position"] + get_pos())
+	femwhale_node.set_pos(segment["position"] + get_pos())
 	femwhale_node.start_position = femwhale_node.get_pos()
 
 func reset():
