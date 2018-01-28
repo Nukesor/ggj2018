@@ -13,9 +13,8 @@ func _ready():
 		get_node("SamplePlayer").play("dying_whale")
 	if get_node("AnimationPlayer"):
 		get_node("AnimationPlayer").play("game_over_animation")
-	set_process_unhandled_input(true)
+	set_process_input(true)
 
-func _unhandled_input(event):
-	print('input')
+func _input(event):
 	if event.is_action_pressed('click') || event.is_action_pressed('ui_accept'):
 		end()

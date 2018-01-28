@@ -10,9 +10,9 @@ var wave_radius = 120
 var wave_wobble
 
 var go_scene = preload("res://scenes/game_over.tscn")
-var win_scene = preload('res://scenes/win.tscn')
-var win_node = win_scene.instance()
+var win_scene = preload('res://scenes/win2.tscn')
 var go_node = go_scene.instance()
+var win_node = win_scene.instance()
 
 var next_ping = rand_range(5,10)
 var start_pos
@@ -21,7 +21,7 @@ var start_angle = 0.0
 func _ready():
 	set_process(true)
 	set_fixed_process(true)
-	
+
 	wave_wobble = get_node("/root/World/Wave").wobble
 
 	# Set the position of the Area2D
@@ -52,7 +52,7 @@ func _draw():
 
 func _process(delta):
 	update()
-	
+
 	wave_wobble = get_node("/root/World/Wave").wobble
 
 	if next_ping < 0:
