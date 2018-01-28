@@ -1,11 +1,11 @@
 extends Node2D
 
-var obstacle_names = ['rock', 'coral']
+var obstacle_names = ['rock', 'rock_b']
 var obstacles = []
 var deco_names = ['bubble', 'fish']
 var deco = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
-var segment_count = 100
+var segment_count = 150
 var lines = []
 var time = 0
 
@@ -20,9 +20,15 @@ func _ready():
 		"position": Vector2(0, 0)
 	}
 
+	var divisor = 2
 	for i in range(segment_count):
-		spawn_segment(segment)
+		spawn_segment(segment, divisor)
 		segment = next_segment(segment)
+
+	for i in range(10):
+		spawn_segment(segment,divisor)
+		segment = next_segment(segment)
+		divisor += 0.25
 
 func reset():
 	for child in get_children():
@@ -69,17 +75,9 @@ func next_segment(previous):
 func spawn_wall_obstacle(segment, offset):
 	var node = prepare_node(rand_element(obstacles))
 	node.set_pos(segment["position"] + offset.rotated(segment["angle"]))
+	node.maybe_add_deco()
 	add_child(node)
 
-func spawn_segment(segment):
-	spawn_wall_obstacle(segment, -segment["height"] / 2)
-	spawn_wall_obstacle(segment, segment["height"] / 2)
-	lines.append([
-		segment["position"] + (-segment["height"] / 2).rotated(segment["angle"]),
-		segment["position"] + (segment["height"] / 2).rotated(segment["angle"])
-	])
-
-	# if randf() > 0.8:
-	# 	var node = prepare_node(rand_element(deco))
-	# 	node.set_pos(Vector2(rand_range(-50, 50), rand_range(-50, 100)))
-	# 	add_child(node)
+func spawn_segment(segment, divisor):
+	spawn_wall_obstacle(segment, -segment["height"] / divisor)
+	spawn_wall_obstacle(segment, segment["height"] / divisor)

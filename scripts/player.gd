@@ -9,7 +9,6 @@ var wave_radius = 120
 var go_scene = load("res://scenes/game_over.tscn")
 var go_node = go_scene.instance()
 
-
 func _ready():
 	set_process(true)
 	set_fixed_process(true)
@@ -18,9 +17,14 @@ func _ready():
 	var area2D = get_node("Area2D")
 	area2D.set_pos(Vector2(wave_radius, 0))
 	area2D.connect('area_enter', self, 'collide')
+	area2D.get_shape(0).set_radius(player_radius * 0.8)
 
 	get_node("SamplePlayer").play("start_sound")
 	get_node("SamplePlayer 2").play("water_background")
+
+func reset():
+	player_angle = 0.0
+	set_rot(player_angle)
 
 func _draw():
 	# Draw the player
@@ -45,4 +49,6 @@ func _process(delta):
 
 func collide(other):
 	get_tree().set_pause(true)
+	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+	go_node.set_pos(Vector2(0, -viewport_y))
 	get_node("/root").add_child(go_node)
