@@ -5,11 +5,10 @@ var obstacles = []
 var deco_names = ['bubble', 'fish']
 var deco = []
 var obstacle_script = preload('res://scripts/obstacle.gd')
-var segment_count = 20
+var segment_count = 150
 var lines = []
 var time = 0
-# TODO with smaller obstacles
-var floating_obstacles_freq = rand_range(0.05, 0.1)
+var floating_obstacles_freq = calculate_random_obstacle_freq()
 var floating_obstacles_counter = 0
 
 func _ready():
@@ -89,6 +88,12 @@ func spawn_wall_obstacle(segment, offset):
 	node.maybe_add_deco()
 	add_child(node)
 
+func spawn_floating_obstacle(segment, offset):
+	var floating_obstacles = load_scenes('obstacles', ['small_rock'])
+	var node = prepare_node(floating_obstacles[0])
+	node.set_pos(segment["position"] + offset.rotated(segment["angle"]))
+	add_child(node)
+
 func spawn_segment(segment, divisor):
 	spawn_wall_obstacle(segment, -segment["height"] / divisor)
 	spawn_wall_obstacle(segment, segment["height"] / divisor)
@@ -98,9 +103,16 @@ func spawn_segment(segment, divisor):
 #	])
 	
 	if floating_obstacles_counter > 1 / floating_obstacles_freq:
-		var segment_height = float(segment["height"].y) / divisor
-		var random_height = rand_range(-segment_height, segment_height)
-		spawn_wall_obstacle(segment, Vector2(0, random_height))
+		var segment_height = float(segment["height"].y)
+		print(segment_height)
+		if segment_height > 64:
+			var random_height = rand_range(-segment_height / divisor, segment_height / divisor)
+			spawn_floating_obstacle(segment, Vector2(0, random_height))
+			floating_obstacles_freq = calculate_random_obstacle_freq()
+			print("create floating wall")
 		floating_obstacles_counter = 0
 	else:
 		floating_obstacles_counter += 1
+
+func calculate_random_obstacle_freq():
+	 return rand_range(0.2, 0.4)
