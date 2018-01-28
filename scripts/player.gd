@@ -7,6 +7,7 @@ var player_speed = 0.02
 var player_radius = 4.0
 
 var wave_radius = 120
+var wave_wobble
 
 var go_scene = preload("res://scenes/game_over.tscn")
 var win_scene = preload('res://scenes/win.tscn')
@@ -19,10 +20,12 @@ var start_angle = 0.0
 func _ready():
 	set_process(true)
 	set_fixed_process(true)
+	
+	wave_wobble = get_node("/root/World/Wave").wobble
 
 	# Set the position of the Area2D
 	var area2D = get_node("Area2D")
-	area2D.set_pos(Vector2(wave_radius, 0))
+	area2D.set_pos(Vector2(wave_radius + wave_wobble, 0))
 	area2D.connect('area_enter', self, 'collide')
 	area2D.get_shape(0).set_radius(player_radius * 0.8)
 
@@ -43,10 +46,12 @@ func mirror():
 
 func _draw():
 	# Draw the player
-	draw_circle(Vector2(wave_radius, 0), player_radius, Color(1.0, 1.0, 1.0))
+	draw_circle(Vector2(wave_radius + wave_wobble, 0), player_radius, Color(1.0, 1.0, 1.0))
 
 func _process(delta):
 	update()
+	
+	wave_wobble = get_node("/root/World/Wave").wobble
 
 	if next_ping < 0:
 		get_node("SamplePlayer").play("noisy_ping")
@@ -63,7 +68,7 @@ func _process(delta):
 
 		set_rot(player_angle)
 
-	var target_y = clamp(-Vector2(wave_radius, 0).rotated(player_angle).y, -40, 40)
+	var target_y = clamp(-Vector2(wave_radius + wave_wobble, 0).rotated(player_angle).y, -40, 40)
 	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
 	var new_y = lerp(viewport_y, target_y, 0.1)
 	get_viewport().set_canvas_transform(Matrix32(0, Vector2(0, new_y)))
