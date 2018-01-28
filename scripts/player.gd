@@ -10,6 +10,7 @@ var wave_radius = 120
 
 var go_scene = preload("res://scenes/game_over.tscn")
 var win_scene = preload('res://scenes/win.tscn')
+var win_node = win_scene.instance()
 var go_node = go_scene.instance()
 
 var next_ping = rand_range(5,10)
@@ -37,8 +38,9 @@ func reset():
 	set_pos(start_pos)
 
 func mirror():
-	set_pos(Vector2(256 - get_pos().x, get_pos().y))
-	player_angle = PI
+	set_pos(get_pos() + Vector2(wave_radius * 2, 0))
+	var player_direction = Vector2(1, 0).rotated(player_angle)
+	player_angle = Vector2(-player_direction.x, -player_direction.y).angle_to(Vector2(1, 0))
 	set_rot(player_angle)
 
 func _draw():
@@ -74,10 +76,11 @@ func collide(other):
 		mirror()
 	elif other.get_name() == "whale":
 		get_tree().set_pause(true)
-		var node = win_scene.instance()
-		get_node('/root').add_child(node)
 		game_speed *= 1.1
 		OS.set_time_scale(game_speed)
+		var viewport_y = get_viewport().get_canvas_transform().get_origin().y
+		win_node.set_pos(Vector2(0, -viewport_y))
+		get_node('/root').add_child(win_node)
 	else:
 		get_tree().set_pause(true)
 		var viewport_y = get_viewport().get_canvas_transform().get_origin().y
