@@ -22,16 +22,22 @@ func _ready():
 		"position": Vector2(0, 0)
 	}
 
-	var divisor = 2
-	for i in range(segment_count):
-		spawn_segment(segment, divisor)
-		segment = next_segment(segment)
-
+	var divisor = 4
 	for i in range(10):
 		spawn_segment(segment,divisor)
 		segment = next_segment(segment)
-		divisor += 0.25
+		divisor -= 0.25
 		
+	for i in range(segment_count):
+		spawn_segment(segment, divisor)
+		segment = next_segment(segment)
+	
+	for i in range(5):
+		spawn_segment(segment,divisor)
+		segment = next_segment(segment)
+		divisor += 0.25
+	
+	print("DIVISOR: ",divisor)
 	#femwhale does not reset right
 	var femwhale_node = get_node("/root/World/femwhale")
 	femwhale_node.set_pos(segment["position"] + get_pos())
