@@ -12,6 +12,7 @@ func _ready():
     set_process(true)
     start_position = get_pos()
 
+func maybe_add_deco():
     if randf() > 0.2:
         var node = load('res://scenes/obstacles/' + rand_element(deco_names) + '.tscn').instance()
         var x = rand_range(-15, 15)

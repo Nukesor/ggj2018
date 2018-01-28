@@ -75,14 +75,9 @@ func next_segment(previous):
 func spawn_wall_obstacle(segment, offset):
 	var node = prepare_node(rand_element(obstacles))
 	node.set_pos(segment["position"] + offset.rotated(segment["angle"]))
+	node.maybe_add_deco()
 	add_child(node)
 
 func spawn_segment(segment, divisor):
 	spawn_wall_obstacle(segment, -segment["height"] / divisor)
 	spawn_wall_obstacle(segment, segment["height"] / divisor)
-
-
-	# if randf() > 0.8:
-	# 	var node = prepare_node(rand_element(deco))
-	# 	node.set_pos(Vector2(rand_range(-50, 50), rand_range(-50, 100)))
-	# 	add_child(node)

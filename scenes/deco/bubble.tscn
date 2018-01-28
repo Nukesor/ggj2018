@@ -5,6 +5,7 @@
 
 [node name="Sprite" type="Sprite"]
 
+transform/pos = Vector2( 59.5654, 128.552 )
 texture = ExtResource( 1 )
 hframes = 6
 frame = 2
