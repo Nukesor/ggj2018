@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scenes/parallax.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/whale.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/obstacles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/wave.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/deco_spawner.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 
@@ -33,5 +34,13 @@ transform/pos = Vector2( 4.10816, 74.7599 )
 transform/pos = Vector2( 171.573, 70.2395 )
 
 [node name="Wave" parent="." instance=ExtResource( 7 )]
+
+[node name="deco_spawner" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 308.965, 74.6488 )
+
+[node name="deco_spawner 2" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -58.6631, 75.8107 )
 
 

@@ -6,9 +6,9 @@
 [node name="Sprite" type="Sprite"]
 
 transform/pos = Vector2( 59.5654, 128.552 )
+z/z = 5
 texture = ExtResource( 1 )
 hframes = 6
-frame = 2
 script/script = ExtResource( 2 )
 
 
