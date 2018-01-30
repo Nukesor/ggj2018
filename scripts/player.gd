@@ -3,7 +3,7 @@ extends KinematicBody2D
 var game_speed = 1
 
 var player_angle = 0.0
-var player_speed = 0.02
+var player_speed = 1
 var player_radius = 4.0
 
 var wave_radius = 120
@@ -61,15 +61,17 @@ func _process(delta):
 	else:
 		next_ping -= delta
 
+	var dt_movement = player_speed * delta
+
 	if Input.is_action_pressed("player_left"):
-		player_angle += player_speed
+		player_angle += dt_movement
 	elif Input.is_action_pressed("player_right"):
-		player_angle -= player_speed
+		player_angle -= dt_movement
 	elif Input.is_action_pressed("click"):
 		if get_viewport().get_mouse_pos().x > 256/2:
-			player_angle -= player_speed
+			player_angle -= dt_movement
 		else:
-			player_angle += player_speed
+			player_angle += dt_movement
 
 	set_rot(player_angle)
 
