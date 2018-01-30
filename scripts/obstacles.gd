@@ -106,12 +106,10 @@ func spawn_segment(segment, divisor):
 
 	if floating_obstacles_counter > 1 / floating_obstacles_freq:
 		var segment_height = float(segment["height"].y)
-		print(segment_height)
 		if segment_height > 64:
 			var random_height = rand_range(-segment_height / divisor, segment_height / divisor)
 			spawn_floating_obstacle(segment, Vector2(0, random_height))
 			floating_obstacles_freq = calculate_random_obstacle_freq()
-			print("create floating wall")
 		floating_obstacles_counter = 0
 	else:
 		floating_obstacles_counter += 1

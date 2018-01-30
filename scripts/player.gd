@@ -61,14 +61,17 @@ func _process(delta):
 	else:
 		next_ping -= delta
 
-	if Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right"):
-		if Input.is_action_pressed("player_left"):
+	if Input.is_action_pressed("player_left"):
+		player_angle += player_speed
+	elif Input.is_action_pressed("player_right"):
+		player_angle -= player_speed
+	elif Input.is_action_pressed("click"):
+		if get_viewport().get_mouse_pos().x > 256/2:
+			player_angle -= player_speed
+		else:
 			player_angle += player_speed
 
-		elif Input.is_action_pressed("player_right"):
-			player_angle -= player_speed
-
-		set_rot(player_angle)
+	set_rot(player_angle)
 
 	var target_y = clamp(-Vector2(wave_radius + wave_wobble, 0).rotated(player_angle).y, -80, 80)
 	var viewport_y = get_viewport().get_canvas_transform().get_origin().y
